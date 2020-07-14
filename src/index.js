@@ -26,8 +26,8 @@ const App = () => {
   const api_key = process.env.REACT_APP_API_KEY
   const getWeather = (city) => {
     let api_call = `http://api.weatherstack.com/current?access_key=${api_key}&query=${city}`
-    console.log(api_call)
-    axios.get(api_call)
+    console.log('apicall', api_call)
+    axios.get(encodeURI(api_call))
         .then(response => {
           console.log(response.data)
           console.log(response.data['current']["weather_descriptions"][0])
